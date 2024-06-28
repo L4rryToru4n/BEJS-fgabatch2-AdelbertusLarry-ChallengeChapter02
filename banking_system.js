@@ -109,12 +109,8 @@ class DepositType extends BankAccount {
   }
 
   informasiTabungan() {
-    return `Tanggal Pembukaan: ${this.tanggalPembukaan}, Tipe Deposito: ${this.tipe}`;
-  }
-
-  jumlahTenor() {
     let jumlahTenor = this.saldo * this.bunga / this.tenor;
-    return jumlahTenor;
+    return `Tanggal Pembukaan: ${this.tanggalPembukaan}, Tipe Deposito: ${this.tipe},  Jumlah Tenor: ${jumlahTenor.toFixed(3)} credits per ${this.tenor}`;
   }
 }
 
@@ -227,7 +223,6 @@ function main() {
   setTimeout(() => {
 
     console.log("[Informasi Tabungan] " + acc1.informasiTabungan());
-    console.log(`Jumlah Tenor: ${acc1.jumlahTenor().toFixed(3)} credits per ${acc1.tenor} bulan`);
 
   }, 200);
   
