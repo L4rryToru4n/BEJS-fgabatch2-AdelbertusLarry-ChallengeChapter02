@@ -110,7 +110,9 @@ class DepositType extends BankAccount {
 
   informasiTabungan() {
     let jumlahTenor = this.saldo * this.bunga / this.tenor;
-    return `Tanggal Pembukaan: ${this.tanggalPembukaan}, Tipe Deposito: ${this.tipe},  Jumlah Tenor: ${jumlahTenor.toFixed(3)} credits per ${this.tenor}`;
+    return `Tanggal Pembukaan: ${this.tanggalPembukaan}, `+
+    `Tipe Deposito: ${this.tipe}, `+
+    `Jumlah Tenor: ${jumlahTenor.toFixed(3)} credits per ${this.tenor} bulan`;
   }
 }
 
@@ -122,110 +124,67 @@ class AmountError extends Error {
   }
 }
 
+let newAccount = new DepositType("Larry", "00147", 200.0, "01-06-2024", "Berjangka", 0.20, 6);
 
-
-function main() {
-
-  let acc1 = new DepositType("Larry", "00147", 200.0, "01-06-2024", "Berjangka", 0.20, 6);
-
-  /*
-  * Asynchronous Process
-  */
-  setTimeout(() => {
-
-    try {
-      console.log(`Depositing on ${acc1.nama} with a value of 100.0`);
-      acc1.deposit(200.0);
-      console.log(`Saldo ${acc1.nama}-${acc1.noRekening} : ${acc1.saldo}`);
-    }
-    catch (error) {
-      if (error instanceof AmountError) {
-        console.log(`AmountError [${error.errorID}]: ${error.errorType}, ${error.message}`)
-      }
-      else {
-        console.error(`Error : ${error.message}`)
-      }
-    }
-
-  }, 100);
-
-  setTimeout(() => {
-    try {
-      console.log(`Withdrawing on ${acc1.nama} with a value of 150.0`);
-      acc1.withdraw(150.0);
-      console.log(`Saldo ${acc1.nama}-${acc1.noRekening} : ${acc1.saldo}`);
-    }
-    catch (error) {
-      if (error instanceof AmountError) {
-        console.log(`AmountError [${error.errorID}]: ${error.errorType}, ${error.message}`)
-      }
-      else {
-        console.error(`Error : ${error.message}`)
-      }
-    }
-    
-  }, 150);
-
-  setTimeout(() => {
-
-    try {
-      console.log(`Depositing on ${acc1.nama} with a value of -150.0`);
-      acc1.deposit(-150.0);
-      console.log(`Saldo ${acc1.nama}-${acc1.noRekening} : ${acc1.saldo}`);
-    }
-    catch (error) {
-      if (error instanceof AmountError) {
-        console.log(`AmountError [${error.errorID}]: ${error.errorType}, ${error.message}`)
-      }
-      else {
-        console.error(`Error : ${error.message}`)
-      }
-    }
-    
-  }, 100);
-
-  setTimeout(() => {
-
-    try {
-      console.log(`Withdrawing on ${acc1.nama} with a value of 50.0`);
-      acc1.withdraw(50.0);
-      console.log(`Saldo ${acc1.nama}-${acc1.noRekening} : ${acc1.saldo}`);
-    }
-    catch (error) {
-      if (error instanceof AmountError) {
-        console.log(`AmountError [${error.errorID}]: ${error.errorType}, ${error.message}`)
-      }
-      else {
-        console.error(`Error : ${error.message}`)
-      }
-    }
-    
-  }, 150);
-
-  setTimeout(() => {
-
-    try {
-      console.log(`Depositing on ${acc1.nama} with a value of 'Not A Number'`);
-      acc1.deposit("Not A Number");
-      console.log(`Saldo ${acc1.nama}-${acc1.noRekening} : ${acc1.saldo}`);
-    }
-    catch (error) {
-      if (error instanceof AmountError) {
-        console.log(`AmountError [${error.errorID}]: ${error.errorType}, ${error.message}`)
-      }
-      else {
-        console.error(`Error : ${error.message}`)
-      }
-    }
-   
-  }, 100);
-
-  setTimeout(() => {
-
-    console.log("[Informasi Tabungan] " + acc1.informasiTabungan());
-
-  }, 200);
-  
+// View functions
+function tampilSaldo() {
+  document.getElementById("viewSaldo").innerHTML = "Saldo Anda : " + newAccount.saldo;
 }
 
-main();
+function tambahSaldo() {
+
+  let jumlah = prompt("Masukkan jumlah uang yang akan ditambahkan", 0.0);
+
+  alert("Memproses deposit..");
+  setTimeout(() => {
+
+    try {
+      alert(newAccount.deposit(jumlah));
+    }
+    catch (error) {
+      if (error instanceof AmountError) {
+        alert(`Error ! [${error.errorID}] : ${error.errorType}, ${error.message}`);
+        console.log(`AmountError [${error.errorID}]: ${error.errorType}, ${error.message}`);
+      }
+      else {
+        alert(`Error ! : ${error.message}`);
+        console.error(`Error : ${error.message}`);
+      }
+    }
+    tampilSaldo();
+  }, 100);
+}
+
+function kurangiSaldo() {
+
+  let jumlah = prompt("Masukkan jumlah uang yang akan dikurangkan", 0.0);
+
+  alert("Memproses withdraw..");
+  setTimeout(() => {
+    try {
+      alert(newAccount.withdraw(jumlah));
+    }
+    catch (error) {
+      if (error instanceof AmountError) {
+        alert(`Error ! [${error.errorID}] : ${error.errorType}, ${error.message}`);
+        console.log(`AmountError [${error.errorID}]: ${error.errorType}, ${error.message}`);
+      }
+      else {
+        alert(`Error ! : ${error.message}`);
+        console.error(`Error : ${error.message}`);
+      }
+    }
+    tampilSaldo();
+  }, 150);
+}
+
+function tampilInformasiTabungan() {
+
+  alert("Menampilkan informasi tabungan..");
+  setTimeout(() => {
+    alert(newAccount.informasiTabungan());
+    tampilSaldo();
+  }, 100);
+}
+
+tampilSaldo();
