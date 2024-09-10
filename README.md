@@ -1,6 +1,7 @@
 # Basic Banking System
 ## Introduction
 Basic Banking System is a modular, Object-Oriented program that has basic functions from the previous program of **Bank Account** such as performing addition and subtraction on an account's balance. The program use classes to handle all of the operations. The main goal of the program is to provide a basic calculation by creating an account object, calling inherited functions to perform either depositing or withdrawing balance and sanitize input by handling common input errors.
+
 ![basic_banking_system](https://github.com/user-attachments/assets/58e2626a-3028-4246-ba37-a0fd5c64890c)
 
 ## Functionality
@@ -9,10 +10,12 @@ The program has a main class of `DepositType` inherited from `BankAccount`. The 
 ## Functions Flow
 ### Withdraw
 When a user selected withdraw process, user will be prompted to input the amount of withdrawal. If the amount inputted is not a valid number (e.g. zero, negative or non numerical), user will be alerted with an error message that is suitable. If however the amount is valid, the account's balance will be subtracted and finally be displayed on the main page.
+
 ![withdraw_function](https://github.com/user-attachments/assets/3ef1ee48-2c5a-4f68-9fa7-51a9f88dfb9a)
 
 ### Deposit
 When a user selected withdraw process, user will be prompted to input the amount of deposit. If the amount inputted is not a valid number (e.g. zero, negative or non numerical), user will be alerted with an error message that is suitable. If however the amount is valid, the account's balance will be added and finally be displayed on the main page.
+
 ![deposit_function](https://github.com/user-attachments/assets/eb0b45c2-94b6-4e21-b75c-9e59e72e0b9b)
 
 ### Savings Information
@@ -22,6 +25,7 @@ When a user selected savings information, the page will display current account'
 - Interest Rate
 - Tenors
 - Balance
+
 ![display_savings_information](https://github.com/user-attachments/assets/b83b7130-e7e6-4d41-bd26-10b47aa12720)
 
 ## Tech Stack Used
