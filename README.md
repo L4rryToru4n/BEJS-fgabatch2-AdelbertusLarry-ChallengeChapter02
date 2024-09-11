@@ -39,4 +39,4 @@ git clone https://github.com/L4rryToru4n/bankaccount-binar-academy-be-chapter-02
 or download the project then extract the .zip file.
 
 ## Usage Instructions
-After downloading or cloning the repository, open the directory project using a browser and type `index.html` to view the program. For performing a calculation, input any numbers in the input box then either click `Tambah Saldo` button or `Kurangi Saldo` button. The result should be then displayed above the input elements.
+After downloading or cloning the repository, open the directory project using a browser and type `index.html` to view the program. For performing a calculation, click either the `Tambah Saldo` or `Kurangi Saldo` button and input any numbers inside the input box then enter. The result should be then displayed above the input elements.
