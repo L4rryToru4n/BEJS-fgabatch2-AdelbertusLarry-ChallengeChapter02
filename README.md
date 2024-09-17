@@ -34,7 +34,7 @@ The program only use a plain JavaScript and HTML for displaying the buttons and 
 ## Setup
 In order to do demo, clone the project by typing this command into the terminal: 
 ```
-git clone https://github.com/L4rryToru4n/bankaccount-binar-academy-be-chapter-02.git
+git clone https://github.com/L4rryToru4n/BEJS-fgabatch2-AdelbertusLarry-ChallengeChapter02.git
 ```
 or download the project then extract the .zip file.
 
